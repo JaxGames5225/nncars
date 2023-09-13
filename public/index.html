@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="Styles/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+    <script src="Scripts/matrix.js" charset="utf-8"></script>
+    <script src="Scripts/nn.js" charset="utf-8"></script>
+    <script src="Scripts/vector.js" charset="utf-8"></script>
+    <script src="Scripts/car.js" charset="utf-8"></script>
+    <script src="Scripts/track.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div class="container">
+      <br>
+      <div class="jumbotron">
+        <h1>Neural Networks</h1>
+        <p>Creating smart computer A.I.'s with the ability to learn.</p>
+      </div>
+      <div class="row">
+        <div class="col-sm-5">
+          <div class="thumbnail">
+            <img src="Images/nn.png" class="img-thumbnail" width="100%">
+            <div class="caption">
+              <br>
+              <p class="lead">This is an Example Neural Network. As you can see, inputs are feed to the Neural Network, and procesed to return outputs.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-7">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h2>What is a Neural Network?</h2>
+            </div>
+            <div class="panel-body">
+              <p class="lead">A Neural Network is one of the closest representations of a human brain on a computer. A neural network does not learn on its own. It needs a teacher, which in this case will be you. A neural network processes inputs and calculates an output. In this case, the inputs are the colors in front of the car and the outputs will be which direction the car steers. below, you will be able to design, train, and test your very own neural network.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-9">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h2>Stage 1: The Design</h2>
+            </div>
+            <div class="panel-body">
+              <div class="form-group">
+                <br>
+                <label for="size">Car:</label>
+                <select class="form-control" id="type">
+                  <option value="1">Small</option>
+                  <option value="2">Normal</option>
+                  <option value="3">Large</option>
+                </select>
+                <br>
+                <label for="size">Speed:</label>
+                <select class="form-control" id="speed">
+                  <option value="3">Slow</option>
+                  <option value="5">Normal</option>
+                  <option value="7">Fast</option>
+                </select>
+              </div>
+              <br>
+              <button type="button" id="apply" class="btn btn-primary btn-block btn-lg">Apply Changes</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <canvas id="carDisplay" width="250" height="350" style="border:3px solid black;"></canvas>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="">
+          <div class="col-sm-6">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h2>Stage 2: Training</h2>
+              </div>
+              <div class="panel-body">
+                <p class="lead">Once you have created your ideal car, with your custom amout of inputs is it now time to train train Neural Network. In order for your Neural Network to drive on any track, you must first train it. Tell your car what it should to in its situation and your Neural Network will guess what it should have done. Once you feel your Neural Network is ready, you can move on to the testing phase.</p>
+                <button type="button" id="btnTrain" class="btn btn-primary btn-block btn-lg">Train Car</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h2>Stage 3: Testing</h2>
+              </div>
+              <div class="panel-body">
+                <p class="lead">Once you believe your car is ready to be tested, and you believe it has been prperly trained, you can finaly test your car. Just sit back and relax as you watch your Neural Network uses its knowlage to drive around a new track it has never driven on before. This will prove that your Neural Network now knows how to process its inputs and decide which way to steer.</p>
+                <button type="button" id="btnTest" class="btn btn-primary btn-block btn-lg">Test Car</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="training">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="well well-nm" >
+              <h4 id="question">Question: </h4>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="alert alert-success" id="alert">
+              <strong id="status">Correct!</strong> Indicates a successful or positive action.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <canvas id="canvas" width="1200" height="600" style="border:3px solid black;"></canvas>
+        <br>
+      </div>
+      <div class="training">
+
+
+        <div class="row">
+          <div class="col-sm-3">
+          </div>
+          <div class="col-sm-6">
+            <div class="btn-group btn-group-justified" style="bottom:350px; left:20px">
+              <div class="btn-group">
+                <button type="button" value="l" class="btn btn-default btn-lg trainCar">Turn Left</button>
+              </div>
+              <div class="btn-group">
+                <button type="button" value="s" class="btn btn-default btn-lg trainCar">Drive Straight</button>
+              </div>
+              <div class="btn-group">
+                <button type="button" value="r" class="btn btn-default btn-lg trainCar">Turn Right</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3"></div>
+        </div>
+      </div>
+    </div>
+    <script src="Scripts/extras.js" charset="utf-8"></script>
+    <script src="Scripts/button.js" charset="utf-8"></script>
+    <script src="Scripts/training.js" charset="utf-8"></script>
+    <script src="Scripts/ga.js" charset="utf-8"></script>
+    <script src="Scripts/display.js" charset="utf-8"></script>
+    <script src="Scripts/script.js" charset="utf-8"></script>
+  </body>
+</html>
